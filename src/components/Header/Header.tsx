@@ -2,6 +2,16 @@ import { FC } from 'react';
 import './Header.scss';
 
 type HashTags = 'Review' | 'Экстрим' |'Легенды' | 'Зож и туризм' | 'Позірк' | 'Треш';
+type Categories = 
+    | 'Футбол'
+    | 'Хоккей'
+    | 'Биатлон'
+    | 'Теннис'
+    | 'Гандбол'
+    | 'Баскетбол'
+    | 'Бокс'
+    | 'Лёгкая атлетика'
+    | 'Другое'
 
 interface NewsData {
     hashTag: HashTags;
@@ -9,8 +19,10 @@ interface NewsData {
 }
 
 const HeaderPage: FC<{title: string}> = ({title}) => {
-    return <span>{title}</span>
-}
+    return (
+        <button>{title}</button>
+    )
+};
 
 const HeaderNew: FC<NewsData> = ({hashTag, data}) => {
     return (
@@ -19,7 +31,7 @@ const HeaderNew: FC<NewsData> = ({hashTag, data}) => {
             <span>{data}</span>
         </div>
     );
-}
+};
 
 const Header: FC = () => {
     const headerPages: HashTags[] = ['Review', 'Экстрим', 'Легенды', 'Зож и туризм', 'Позірк', 'Треш'];
@@ -27,6 +39,7 @@ const Header: FC = () => {
         hashTag: 'Экстрим',
         data: 'Юрий Поклад: «Динамо» как бы начинает работать заново'
     }
+    const categories: Categories[] = ['Футбол', 'Хоккей', 'Биатлон', 'Теннис', 'Гандбол', 'Баскетбол', 'Бокс', 'Лёгкая атлетика', 'Другое']
 
     return (
         <header>
@@ -39,9 +52,11 @@ const Header: FC = () => {
                     </span>
                     <div className='header_right_elements' >
                         <div className='header_pages'>
-                            {headerPages.map((titles, index) => {
-                                return <HeaderPage key={index} title={titles} />
-                            })}
+                            {
+                                headerPages.map((titles, index) => {
+                                    return <HeaderPage key={index} title={titles} />
+                                })
+                            }
                         </div>
                         <button className='header_aside_button'>
                             <div></div>
@@ -51,7 +66,13 @@ const Header: FC = () => {
                 </div>
                 <HeaderNew data={newData.data} hashTag={newData.hashTag} />
                 <div className="header_submenu">
-                    
+                    <div className='header_submenu_container'>
+                        {
+                            categories.map((category, index) => {
+                                return <HeaderPage title={category} key={index} />
+                            })
+                        }
+                    </div>
                 </div>
             </div>
             <div className='header_top_gradient'></div>

@@ -50,8 +50,9 @@ header {
     margin-right: 50px;
     
 
-    span {
+    button {
         text-transform: uppercase;
+        cursor: pointer;
 
         &:not(:last-child) {
             margin-right: 50px;
@@ -69,6 +70,7 @@ header {
 .header_aside_button {
     width: 48px;
     height: 100%;
+    cursor: pointer;
 
     div {
         height: 1.3px;
@@ -139,7 +141,25 @@ header {
     width: 100%;
     position: relative;
     z-index: 1;
-    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    position: relative;
+
+    &_container {
+        display: flex;
+        justify-content: space-between;
+        flex: 0 0 940px;
+        height: 100%;
+        padding: 0 10px;
+        left: 0;
+        
+        button {
+            font-size: 1.4rem;
+            cursor: pointer;
+            width: max-content;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -176,5 +196,11 @@ header {
     .header_submenu {
         padding: 0 15px;
         height: 45px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .header_submenu {
+        justify-content: flex-start;
     }
 }

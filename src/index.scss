@@ -26,8 +26,15 @@ html {
 button {
     background-color: transparent;
     border: none;
+    color: $white;
+    font-family: "Roboto Flex", sans-serif;
 }
 
 * {
     box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
