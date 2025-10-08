@@ -1,0 +1,76 @@
+@import '../../constants';
+
+header {
+    height: 580px;
+    background-image: url('../../../public/Img/background-big.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.header_line {
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 30px;
+}
+
+.header_logo {
+    font-size: 2rem;
+    font-family: 'Millimetre-Bold';
+    color: $white;
+
+    span {
+        color: $accent;
+    }
+}
+
+.header_pages {
+    font-size: 1.2rem;
+    display: flex;
+    font-weight: 300;
+    margin-right: 50px;
+
+    span {
+        text-transform: uppercase;
+
+        &:not(:last-child) {
+            margin-right: 50px;
+        }
+    }
+}
+
+.header_aside_button {
+    width: 48px;
+    height: 100%;
+
+    div {
+        height: 1.3px;
+        background-color: $white;
+        border-radius: 2px;
+
+        &:first-child {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 768px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        background-image: url('../../../public/Img/background-middle.png');
+    }
+
+    .header_pages {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    header {
+        height: 250px;
+    }
+}
