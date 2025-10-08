@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './Header.scss';
 
-type HashTags = 'Review' | 'Экстрим' |'Легенды' | 'Зож и туризм' | 'Позірк' | 'Треш';
+export type HashTags = 'Review' | 'Экстрим' |'Легенды' | 'Зож и туризм' | 'Позірк' | 'Треш';
 type Categories = 
     | 'Футбол'
     | 'Хоккей'
