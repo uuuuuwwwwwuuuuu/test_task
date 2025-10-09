@@ -35,7 +35,7 @@ const FeedBack: FC = () => {
                 <div className='subscribe'>
                     <form className='subscribe_form' >
                         <input type="email" placeholder='Введите ваш email' className='subscribe_input' />
-                        <button className='subscribe_button'>Подписаться</button>
+                        <button type='submit' className='subscribe_button'>Подписаться</button>
                     </form>
                 </div>
             </div>

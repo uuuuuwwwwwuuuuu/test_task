@@ -4,8 +4,6 @@ import { namesOfSVG } from '../feedback/FeedBack';
 import useScreenSize from '../../dtectScreenSIze';
 import { calcOffset } from '../bigNew/BigNew';
 
-
-
 const Footer: FC = () => {
     const screenWidth = useScreenSize().width
     const [offset, setOffset] = useState(150);

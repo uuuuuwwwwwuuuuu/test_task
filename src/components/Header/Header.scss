@@ -50,7 +50,7 @@ header {
     display: flex;
     font-weight: 300;
     margin-right: 50px;
-    
+    gap: 40px;
 
     button {
         text-transform: uppercase;
@@ -69,7 +69,7 @@ header {
         }
 
         &:not(:last-child) {
-            margin-right: 50px;
+            // margin-right: 50px;
         }
     }
 }
@@ -159,6 +159,10 @@ header {
     justify-content: center;
     overflow-x: scroll;
     position: relative;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &_container {
         display: flex;

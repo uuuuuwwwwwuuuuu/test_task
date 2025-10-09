@@ -32,14 +32,26 @@ const HeaderNew: FC<NewsData> = ({hashTag, data}) => {
         </div>
     );
 };
+export const headerPages: HashTags[] = ['Review', 'Экстрим', 'Легенды', 'Зож и туризм', 'Позірк', 'Треш'];
+export const categories: Categories[] = ['Футбол', 'Хоккей', 'Биатлон', 'Теннис', 'Гандбол', 'Баскетбол', 'Бокс', 'Лёгкая атлетика', 'Другое']
 
-const Header: FC = () => {
-    const headerPages: HashTags[] = ['Review', 'Экстрим', 'Легенды', 'Зож и туризм', 'Позірк', 'Треш'];
+interface Props {
+    setIsAsideVisible: (isVisible: boolean) => void
+}
+
+const Header: FC<Props> = ({setIsAsideVisible}) => {
     const newData: NewsData = {
         hashTag: 'Экстрим',
         data: 'Юрий Поклад: «Динамо» как бы начинает работать заново'
     }
-    const categories: Categories[] = ['Футбол', 'Хоккей', 'Биатлон', 'Теннис', 'Гандбол', 'Баскетбол', 'Бокс', 'Лёгкая атлетика', 'Другое']
+
+    const openAside = () => {
+        setIsAsideVisible(true);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
     return (
         <header>
@@ -58,7 +70,7 @@ const Header: FC = () => {
                                 })
                             }
                         </div>
-                        <button className='header_aside_button'>
+                        <button onClick={openAside} className='header_aside_button'>
                             <div></div>
                             <div></div>
                         </button>

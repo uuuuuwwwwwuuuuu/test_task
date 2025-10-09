@@ -1,0 +1,272 @@
+@import '../../constants';
+
+aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: $accent;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    transition: 1s all ease;
+}
+
+.aside_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    button {
+        width: 40px;
+        height: 40px;
+        transition: 0.4s all ease;
+
+        @media (hover:hover) {
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
+.aside_main {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 280px;
+    gap: 40px;
+    font-weight: 400;
+}
+
+.aside_hash_tags_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    button {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        transition: 0.4s all ease;
+
+        @media (hover:hover) {
+            &:hover {
+                transform: scale(1.02) translateY(-8px);
+            }
+        }
+
+        &:active {
+            color: $gray;
+        }
+    }
+}
+
+.aside_categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    
+    button {
+        transition: 0.4s all ease;
+
+        @media (hover:hover) {
+            &:hover {
+                transform: scale(1.02) translateY(-5px);
+            }
+        }
+
+        &:active {
+            color: $gray;
+        }
+    }
+}
+
+.aside_about {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    
+    button {
+        text-transform: uppercase;
+        text-align: start;
+        transition: 0.4s all ease;
+        font-size: 1.6rem;
+
+        @media (hover:hover) {
+            &:hover {
+                transform: scale(1.02) translateY(-5px);
+            }
+        }
+
+        &:active {
+            color: $gray;
+        }
+    }
+}
+
+.aside_social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    a {
+        transition: 0.4s all ease;
+        @media (hover:hover) {
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+    }
+}
+
+.aside_main_container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: flex-start;
+}
+
+.aside_footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.aside_ads {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+
+    span {
+        cursor: pointer;
+        transition: 0.4s all ease;
+        &:first-child {
+            font-size: 1.6rem;
+            font-weight: 500;
+            
+        }
+
+        &:last-child {
+            font-size: 1.4rem;
+            font-weight: 200;
+            
+            @media (hover:hover) {
+                &:hover {
+                    transform: scale(1.1) translateY(-8px);
+                }
+            }
+
+            &:active {
+                color: $gray;
+            }
+        }
+
+    }
+}
+
+form {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+
+    span:first-child {
+        color: $white;
+        font-weight: 500;
+        font-size: 1.6rem;
+    }
+
+    .aside_subscribe {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 300px;
+        gap: 14px;
+        width: 100%;
+
+        input {
+            &::placeholder {
+                color: $white;
+                font-size: 1.4rem;
+                font-weight: 200;
+            }
+            color: $white;
+            border-bottom: 1px solid $white;
+            height: 28px;
+            width: 100%;
+        }
+    }
+
+    button {
+        flex: 0 0 200px;
+        height: 40px;
+        background-color: $white;
+        color: $black;
+        border-radius: 100px;
+        transition: 0.4s all ease;
+
+        @media (hover:hover) {
+            &:hover {
+                background-color: $gray;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    aside {
+        padding: 20px 10px;
+    }
+
+    .aside_footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+
+        max-width: 400px;
+        width: 100%;
+
+        .aside_subscribe {
+            flex: 0 0;
+        }
+
+        button {
+            flex: 0 0 40px;
+            max-width: 300px;
+            width: 100%;
+        }
+    }
+
+    .aside_about {
+        button {
+            font-size: 1.4rem;
+        }
+    }
+
+    .aside_main {
+        gap: 20px;
+    }
+
+    .aside_ads {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .aside_main {
+        display: none;
+    }
+}
