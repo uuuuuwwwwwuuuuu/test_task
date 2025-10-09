@@ -137,6 +137,8 @@
     position: relative;
     flex: 1 1;
 
+    cursor: pointer;
+
     &_text_header {
         display: flex;
         flex-direction: column;
