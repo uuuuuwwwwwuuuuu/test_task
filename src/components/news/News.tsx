@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import './News.scss';
+import useScreenSize from '../../dtectScreenSIze';
 
 
 const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = ({size, imgSrc, hashTag}) => {
@@ -41,7 +42,12 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = (
     )
 };
 
-const CoachCard: FC<{textVersion: 'first' | 'second', imgSrc: string}> = ({textVersion, imgSrc}) => {
+interface CoachProps {
+    textVersion: 'first' | 'second',
+    imgSrc: `coach-${number}`
+}
+
+const CoachCard: FC<CoachProps> = ({textVersion, imgSrc}) => {
     const text = textVersion === 'first' ? 'Сергей Корниленко станет играющим тренером «Крыльев советов»' : '«Динамо» как бы начинает работать заново'
     const dynamicPath = `${process.env.PUBLIC_URL}/img/${imgSrc}.png`;
     return (
@@ -60,21 +66,59 @@ const CoachCard: FC<{textVersion: 'first' | 'second', imgSrc: string}> = ({textV
 }
 
 const News: FC = () => {
+    const screenSize = useScreenSize();
+    const coachesArr: CoachProps[] = [
+        {textVersion: 'first', imgSrc: 'coach-1'},
+        {textVersion: 'second', imgSrc: 'coach-2'},
+        {textVersion: 'first', imgSrc: 'coach-3'},
+        {textVersion: 'second', imgSrc: 'coach-1'},
+    ];
+
     return (
         <div className="news_container">
             <span className='last_news'>Последнее</span>
-            <div className='news_wrapper'>
+            <div className='news_big_wrapper'>
                 <NewsCard size='small' imgSrc='new-2' hashTag='болельщикам'/>
                 <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
                 <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
                 <NewsCard size='small' imgSrc='new-2' hashTag='болельщикам'/>
-                <div className='coach_cards_wrapper'>
-                    <CoachCard textVersion='first' imgSrc='coach-1'/>
-                </div>
-                <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
-                <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
             </div>
-
+            {
+                screenSize.width <= 660 ? 
+                    <div className='coach_container'>
+                        <div className='coach_window'>
+                            <div className='coach_wrapper'>
+                                {
+                                    coachesArr.map((coach, index) => {
+                                        return <CoachCard textVersion={coach.textVersion} imgSrc={coach.imgSrc} key={index} />
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className='coach_nav_panel'>
+                            <button className='coach_slide_buttons'>{'<'}</button>
+                            <div className='coach_nav_buttons'>
+                                {
+                                    coachesArr.map(_ => {
+                                        return <div></div>
+                                    })
+                                }
+                            </div>
+                            <button className='coach_slide_buttons'>{'>'}</button>
+                        </div>
+                    </div> :
+                    <div className='coach_wrapper'>
+                        {
+                            coachesArr.map((coach, index) => {
+                                return <CoachCard textVersion={coach.textVersion} imgSrc={coach.imgSrc} key={index} />
+                            })
+                        }
+                    </div>
+            }
+            <div className='news_small_wrapper'>
+                <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
+                <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
+            </div>
         </div>
     );
 };
