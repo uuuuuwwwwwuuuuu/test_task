@@ -99,8 +99,8 @@ const News: FC = () => {
                             <button className='coach_slide_buttons'>{'<'}</button>
                             <div className='coach_nav_buttons'>
                                 {
-                                    coachesArr.map(_ => {
-                                        return <div></div>
+                                    coachesArr.map((_, index) => {
+                                        return <div key={index}></div>
                                     })
                                 }
                             </div>

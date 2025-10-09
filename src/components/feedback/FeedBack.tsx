@@ -1,14 +1,43 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import './FeedBack.scss';
 
 const FeedBack: FC = () => {
+    const namesOfSVG = [
+        ['VK', 'Вконтакте', 'https://vk.com/'],
+        ['FaceBook', 'Фейсбук', 'https://www.facebook.com/'],
+        ['Instagram', 'Инстаграм', 'https://www.instagram.com/'],
+        ['YouTube', 'Ютуб', 'https://www.youtube.com/'],
+        ['Telegram', 'Телеграм', 'https://web.telegram.org/k/'],
+        ['TikTok', 'Тик ток', 'https://www.tiktok.com/'],
+        ['Twitter', 'Твитер', 'https://x.com/']
+    ] as const;
+
     return (
         <div className='feed_back_wrapper'>
             <div className='social_wrapper'>
-                <span>Соцсети</span>
+                <span className='feed_back_title'>Соцсети</span>
+                <div className='social'>
+                    <div className='social_icons'>
+                        {
+                            namesOfSVG.map((iconData, index) => {
+                                return (
+                                    <a href={iconData[2]} className='social_link' key={index}>
+                                        <img src={`${process.env.PUBLIC_URL}/icons/${iconData[0]}.svg`} alt={iconData[1]} />
+                                    </a>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </div>
             <div className='subscribe_wrapper'>
-                <span>Подписка</span>
+                <span className='feed_back_title'>Подписка</span>
+                <div className='subscribe'>
+                    <form className='subscribe_form' >
+                        <input type="email" placeholder='Введите ваш email' className='subscribe_input' />
+                        <button className='subscribe_button'>Подписаться</button>
+                    </form>
+                </div>
             </div>
         </div>
     )
