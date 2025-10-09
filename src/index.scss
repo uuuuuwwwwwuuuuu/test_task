@@ -28,6 +28,8 @@ button {
     border: none;
     color: $white;
     font-family: "Roboto Flex", sans-serif;
+    outline: none;
+    cursor: pointer;
 }
 
 * {
@@ -37,6 +39,8 @@ button {
 * {
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 a {

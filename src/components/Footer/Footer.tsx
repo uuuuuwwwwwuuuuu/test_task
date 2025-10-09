@@ -33,8 +33,8 @@ const Footer: FC = () => {
             <div className='footer_container'>
                 <div className='footer_main_info'>
                     <span className='logo'><i>sporthub</i></span>
-                    <span>О проекте</span>
-                    <span>Обратная связь</span>
+                    <span className='footer_about_and_feedback'>О проекте</span>
+                    <span className='footer_about_and_feedback'>Обратная связь</span>
                     <div className='footer_ads' style={{right: offset}}>
                         <span>Реклама:</span>
                         <span>ads@sporthub.news</span>

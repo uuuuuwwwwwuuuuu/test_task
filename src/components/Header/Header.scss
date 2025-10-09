@@ -38,6 +38,7 @@ header {
     font-family: 'Millimetre-Bold';
     color: $white;
     text-transform: lowercase;
+    cursor: default;
 
     span {
         color: $accent;
@@ -54,6 +55,18 @@ header {
     button {
         text-transform: uppercase;
         cursor: pointer;
+        transition: 0.4s all ease;
+
+        @media (hover:hover) {
+            &:hover {
+                color: $accent;
+            }
+            
+        }
+        &:active {
+            color: $accent;
+
+        }
 
         &:not(:last-child) {
             margin-right: 50px;
@@ -159,6 +172,17 @@ header {
             font-size: 1.4rem;
             cursor: pointer;
             width: max-content;
+            transition: 0.3s all ease;
+
+            @media (hover:hover) {
+                &:hover {
+                    font-size: 2rem;
+                }
+            }
+
+            &:active {
+                color: $gray;
+            }
         }
     }
 }
