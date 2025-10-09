@@ -12,8 +12,12 @@ interface Props {
 const Aside: FC<Props> = ({isVisible, setIsVisible}) => {
     const height = useScreenSize().height
 
+    const offsetValue = isVisible 
+        ? 0 
+        : height <= 800 ? -800 : -height - 30
+
     const asideInlineStyles: CSSProperties = {
-        top: isVisible ? 0 : -height-30
+        top: offsetValue
     }
 
     const closeAside = () => {

@@ -322,9 +322,10 @@
     }
 
     .coach_wrapper {
+        transition: 0.5s all ease;
         display: flex;
         width: max-content;
-        gap: 50px;
+        gap: 0;
     }
 
     .coach_container {
@@ -344,6 +345,12 @@
         overflow: hidden;
     }
 
+    #active {
+        background-color: $accent;
+    }
+
+    
+
     .coach_nav_buttons {
         display: flex;
         width: 150px;
@@ -351,7 +358,7 @@
         height: 2px;
         div {
             width: 30px;
-            height: 2px;
+            height: 3px;
             border-radius: 2px;
             background-color: $gray;
         }

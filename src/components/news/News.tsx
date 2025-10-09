@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, MouseEventHandler, RefObject, useEffect, useRef, useState } from 'react';
 import './News.scss';
 import useScreenSize from '../../dtectScreenSIze';
 
@@ -43,15 +43,16 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = (
 };
 
 interface CoachProps {
-    textVersion: 'first' | 'second',
-    imgSrc: `coach-${number}`
+    textVersion: 'first' | 'second';
+    imgSrc: `coach-${number}`;
+    ref?: RefObject<HTMLDivElement | null>
 }
 
-const CoachCard: FC<CoachProps> = ({textVersion, imgSrc}) => {
+const CoachCard: FC<CoachProps> = ({textVersion, imgSrc, ref}) => {
     const text = textVersion === 'first' ? 'Сергей Корниленко станет играющим тренером «Крыльев советов»' : '«Динамо» как бы начинает работать заново'
     const dynamicPath = `${process.env.PUBLIC_URL}/img/${imgSrc}.png`;
     return (
-        <div className='coach_card'>
+        <div className='coach_card' ref={ref}>
             <img src={dynamicPath} alt="Фото тренера" />
             <div className='coach_card_text_header'>
                 <span className='coach_name'>Алексей Михайличенко</span>
@@ -74,6 +75,35 @@ const News: FC = () => {
         {textVersion: 'second', imgSrc: 'coach-1'},
     ];
 
+    const [coachIndex, setCoachIndex] = useState(0);
+    const [translateValue, setTranslateValue] = useState(0);
+    const coachWrapper = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const wrapper = coachWrapper.current;
+
+        if (wrapper) {
+            const wrapperWidth = wrapper.clientWidth;
+            const cardAndGapWidth = (wrapperWidth / coachesArr.length);
+
+            setTranslateValue(cardAndGapWidth * coachIndex);
+        }
+    }, [coachIndex, coachesArr.length]);
+
+    const nextCoach = () => {
+        if (coachIndex !== coachesArr.length - 1) {
+            setCoachIndex(prevState => prevState + 1);
+        }
+        return
+    }
+
+    const prevCoach = () => {
+        if (coachIndex !== 0) {
+            setCoachIndex(prevState => prevState - 1);
+        }
+        return
+    }
+
     return (
         <main className="news_container">
             <span className='last_news'>Последнее</span>
@@ -87,7 +117,7 @@ const News: FC = () => {
                 screenSize.width <= 660 ? 
                     <div className='coach_container'>
                         <div className='coach_window'>
-                            <div className='coach_wrapper'>
+                            <div className='coach_wrapper' ref={coachWrapper} style={{transform: `translateX(${-translateValue}px)`}}>
                                 {
                                     coachesArr.map((coach, index) => {
                                         return <CoachCard textVersion={coach.textVersion} imgSrc={coach.imgSrc} key={index} />
@@ -96,15 +126,15 @@ const News: FC = () => {
                             </div>
                         </div>
                         <div className='coach_nav_panel'>
-                            <button className='coach_slide_buttons'>{'<'}</button>
+                            <button className='coach_slide_buttons' onClick={prevCoach}>{'<'}</button>
                             <div className='coach_nav_buttons'>
                                 {
                                     coachesArr.map((_, index) => {
-                                        return <div key={index}></div>
+                                        return <div key={index} id={index === coachIndex ? 'active' : ''} ></div>
                                     })
                                 }
                             </div>
-                            <button className='coach_slide_buttons'>{'>'}</button>
+                            <button className='coach_slide_buttons' onClick={nextCoach}>{'>'}</button>
                         </div>
                     </div> :
                     <div className='coach_wrapper'>
