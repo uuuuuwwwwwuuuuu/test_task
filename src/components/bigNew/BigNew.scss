@@ -63,10 +63,22 @@
     .big_new {
         height: 276px;
     }
+
+    .big_new_text {
+        font-size: 1.6rem;
+    }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     .big_new_info_hash_tag {
         font-size: 2rem;
+    }
+
+    .big_new_title {
+        font-size: 2rem;
+    }
+
+    .big_new_text {
+        font-size: 1.4rem;
     }
 }
