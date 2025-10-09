@@ -1,17 +1,17 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC } from 'react';
 import './FeedBack.scss';
 
-const FeedBack: FC = () => {
-    const namesOfSVG = [
-        ['VK', 'Вконтакте', 'https://vk.com/'],
-        ['FaceBook', 'Фейсбук', 'https://www.facebook.com/'],
-        ['Instagram', 'Инстаграм', 'https://www.instagram.com/'],
-        ['YouTube', 'Ютуб', 'https://www.youtube.com/'],
-        ['Telegram', 'Телеграм', 'https://web.telegram.org/k/'],
-        ['TikTok', 'Тик ток', 'https://www.tiktok.com/'],
-        ['Twitter', 'Твитер', 'https://x.com/']
-    ] as const;
+export const namesOfSVG = [
+    ['VK', 'Вконтакте', 'https://vk.com/'],
+    ['FaceBook', 'Фейсбук', 'https://www.facebook.com/'],
+    ['Instagram', 'Инстаграм', 'https://www.instagram.com/'],
+    ['YouTube', 'Ютуб', 'https://www.youtube.com/'],
+    ['Telegram', 'Телеграм', 'https://web.telegram.org/k/'],
+    ['TikTok', 'Тик ток', 'https://www.tiktok.com/'],
+    ['Twitter', 'Твитер', 'https://x.com/']
+] as const;
 
+const FeedBack: FC = () => {
     return (
         <div className='feed_back_wrapper'>
             <div className='social_wrapper'>

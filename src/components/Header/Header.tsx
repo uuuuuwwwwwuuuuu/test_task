@@ -45,7 +45,7 @@ const Header: FC = () => {
         <header>
             <div className="header_info">
                 <div className='header_line'>
-                    <span className='header_logo'>
+                    <span className='logo'>
                         <i>
                             <span>sport</span>hub
                         </i>

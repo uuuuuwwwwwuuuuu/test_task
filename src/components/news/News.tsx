@@ -75,7 +75,7 @@ const News: FC = () => {
     ];
 
     return (
-        <div className="news_container">
+        <main className="news_container">
             <span className='last_news'>Последнее</span>
             <div className='news_big_wrapper'>
                 <NewsCard size='small' imgSrc='new-2' hashTag='болельщикам'/>
@@ -119,7 +119,7 @@ const News: FC = () => {
                 <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
                 <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
             </div>
-        </div>
+        </main>
     );
 };
 

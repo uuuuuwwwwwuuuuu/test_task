@@ -33,10 +33,11 @@ header {
     max-width: 1340px;
 }
 
-.header_logo {
+.logo {
     font-size: 2rem;
     font-family: 'Millimetre-Bold';
     color: $white;
+    text-transform: lowercase;
 
     span {
         color: $accent;
@@ -137,7 +138,7 @@ header {
 
 .header_submenu {
     height: 60px;
-    background-color: $accent;
+    background-color: $dimAccent;
     width: 100%;
     position: relative;
     z-index: 1;

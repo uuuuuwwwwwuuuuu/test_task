@@ -20,7 +20,7 @@ interface CalcOffsetOptions {
 
 }
 
-const calcOffset = (params: CalcOffsetOptions) => {
+export const calcOffset = (params: CalcOffsetOptions) => {
     const {maxOffsetValue, maxScreenSize, minOffsetValue, minScreenSize} = params.options
     const angularСoeficent = (maxOffsetValue - minOffsetValue) / (maxScreenSize - minScreenSize);
     const offsetValue = maxOffsetValue - angularСoeficent * maxScreenSize
