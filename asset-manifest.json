@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.bfdf200f.css",
+    "main.js": "./static/js/main.b162d2fb.js",
+    "static/media/background-big.png": "./static/media/background-big.c576ae7fec85df610d5e.png",
+    "static/media/background-middle.png": "./static/media/background-middle.61ddb4d98b9622cddc10.png",
+    "static/media/Millimetre-Bold.otf": "./static/media/Millimetre-Bold.c7dac626d351fbe9fecd.otf",
+    "index.html": "./index.html",
+    "main.bfdf200f.css.map": "./static/css/main.bfdf200f.css.map",
+    "main.b162d2fb.js.map": "./static/js/main.b162d2fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfdf200f.css",
+    "static/js/main.b162d2fb.js"
+  ]
+}
