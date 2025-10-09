@@ -16,19 +16,6 @@
     margin-bottom: 24px;
 }
 
-.big_news_card {
-    max-width: 640px;
-    height: 580px;
-    background-size: cover;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    background-position: center;
-    cursor: pointer;
-}
-
 .news_bottom_gradient {
     position: absolute;
     width: 100%;
@@ -94,6 +81,19 @@
     margin-top: 24px;
 }
 
+.big_news_card {
+    max-width: 640px;
+    height: 580px;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    background-position: center;
+    cursor: pointer;
+}
+
 .small_news_card {
     max-width: 640px;
     height: 580px;
@@ -102,6 +102,8 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
+    
+    cursor: pointer;
 
     .news_card_date {
         color: $black;
@@ -121,6 +123,71 @@
     background-position: center;
     width: 100%;
     flex: 1 1;
+}
+
+.coach_card {
+    max-width: 300px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+
+    &_text_header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+    }
+
+    .coach {
+        &_name {
+            font-size: 1.8rem;
+            color: $black;
+            font-weight: 600;
+        }
+
+        &_qualification {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: $black;
+        }
+
+        &_info {
+            font-size: 2rem;
+            font-weight: 200;
+            color: $gray;
+        }
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+    }
+}
+
+.quotation_mark_wrapper {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $accent;
+    border-radius: 100px;
+
+    img {
+        border-radius: 0;
+        width: 22px;
+        height: 22px;
+    }
 }
 
 @media screen and (max-width: 768px) {

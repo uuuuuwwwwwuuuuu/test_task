@@ -2,14 +2,14 @@ import { FC } from 'react';
 import './News.scss';
 
 
-const NewsCard: FC<{size: 'big' | 'small', imgSrc: string}> = ({size, imgSrc}) => {
+const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = ({size, imgSrc, hashTag}) => {
     const dynamicPath = `${process.env.PUBLIC_URL}/img/${imgSrc}.png`;
     if (size === 'big') {
         return (
             <div className='big_news_card' style={{backgroundImage: `url(${dynamicPath})`}} >
                 <div className='news_card_text'>
                     <span className='news_card_date'>
-                        <span>09.07.19 |</span>#ПРОФЕССИОНАЛЬНЫЙ_СПОРТ
+                        <span>09.07.19 |</span>#{hashTag.toUpperCase()}
                     </span>
                     <span className='news_card_title'>
                         Японцы лидируют в медальном зачете летней универсиады, белорусы – 25-е. Почему так?
@@ -28,7 +28,7 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string}> = ({size, imgSrc}) =
             <div className="small_news_card_img" style={{backgroundImage: `url(${dynamicPath})`}}></div>
             <div className='news_card_text'>
                 <span className='news_card_date'>
-                    <span>09.07.19 |</span>#ПРОФЕССИОНАЛЬНЫЙ_СПОРТ
+                    <span>09.07.19 |</span>#{hashTag.toUpperCase()}
                 </span>
                 <span className='news_card_title' >
                     Японцы лидируют в медальном зачете летней универсиады, белорусы – 25-е. Почему так?
@@ -39,6 +39,24 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string}> = ({size, imgSrc}) =
             </div>
         </div>
     )
+};
+
+const CoachCard: FC<{textVersion: 'first' | 'second', imgSrc: string}> = ({textVersion, imgSrc}) => {
+    const text = textVersion === 'first' ? 'Сергей Корниленко станет играющим тренером «Крыльев советов»' : '«Динамо» как бы начинает работать заново'
+    const dynamicPath = `${process.env.PUBLIC_URL}/img/${imgSrc}.png`;
+    return (
+        <div className='coach_card'>
+            <img src={dynamicPath} alt="Фото тренера" />
+            <div className='coach_card_text_header'>
+                <span className='coach_name'>Алексей Михайличенко</span>
+                <span className='coach_qualification'>Главный тренер ф.к. Динамо</span>
+            </div>
+            <span className='coach_info'>{text}</span>
+            <div className='quotation_mark_wrapper'>
+                <img src={`${process.env.PUBLIC_URL}/icons/quotationMarks.svg`} alt="Иконка кавычек" />
+            </div>
+        </div>
+    )
 }
 
 const News: FC = () => {
@@ -46,12 +64,15 @@ const News: FC = () => {
         <div className="news_container">
             <span className='last_news'>Последнее</span>
             <div className='news_wrapper'>
-                <NewsCard size='small' imgSrc='new-2'/>
-                <NewsCard size='small' imgSrc='new-3'/>
-                <NewsCard size='big' imgSrc='new-1'/>
-                <NewsCard size='small' imgSrc='new-2'/>
-                <NewsCard size='small' imgSrc='new-3'/>
-                <NewsCard size='big' imgSrc='new-1'/>
+                <NewsCard size='small' imgSrc='new-2' hashTag='болельщикам'/>
+                <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
+                <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
+                <NewsCard size='small' imgSrc='new-2' hashTag='болельщикам'/>
+                <div className='coach_cards_wrapper'>
+                    <CoachCard textVersion='first' imgSrc='coach-1'/>
+                </div>
+                <NewsCard size='small' imgSrc='new-3' hashTag='любительский_спорт'/>
+                <NewsCard size='big' imgSrc='new-1' hashTag='профессиональный_спорт'/>
             </div>
 
         </div>
