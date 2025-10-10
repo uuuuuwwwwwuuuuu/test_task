@@ -42,7 +42,7 @@ const Footer: FC = () => {
                     {
                         namesOfSVG.map((iconData, index) => {
                             return (
-                                <a key={index} href={iconData[2]}>
+                                <a key={index} aria-label={iconData[1]} href={iconData[2]}>
                                     <img src={`${process.env.PUBLIC_URL}/icons/${iconData[0]}-outline.svg`} alt={iconData[1]} />
                                 </a>
                             )

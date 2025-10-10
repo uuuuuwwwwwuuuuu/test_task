@@ -34,7 +34,7 @@ const Aside: FC<Props> = ({isVisible, setIsVisible}) => {
             </div>
             <div className='aside_main_container'>
                 <div className='aside_main'>
-                    <div className='aside_hash_tags_list'>
+                    <nav className='aside_hash_tags_list'>
                         {
                             headerPages.map((hashTagData, index) => {
                                 return (
@@ -42,7 +42,7 @@ const Aside: FC<Props> = ({isVisible, setIsVisible}) => {
                                 )
                             })
                         }
-                    </div>
+                    </nav>
                     <div className='aside_categories'>
                         {
                             categories.map((categoriesData, index) => {
@@ -61,7 +61,7 @@ const Aside: FC<Props> = ({isVisible, setIsVisible}) => {
                     {
                         namesOfSVG.map((iconData, index) => {
                             return (
-                                <a href={iconData[2]} key={index}>
+                                <a aria-label={iconData[1]} href={iconData[2]} key={index}>
                                     <img src={`${process.env.PUBLIC_URL}/icons/${iconData[0]}-outline.svg`} alt={iconData[1]} />
                                 </a>
                             )

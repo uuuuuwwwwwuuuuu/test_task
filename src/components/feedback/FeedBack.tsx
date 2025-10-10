@@ -21,7 +21,7 @@ const FeedBack: FC = () => {
                         {
                             namesOfSVG.map((iconData, index) => {
                                 return (
-                                    <a href={iconData[2]} className='social_link' key={index}>
+                                    <a href={iconData[2]} aria-label={iconData[1]} className='social_link' key={index}>
                                         <img src={`${process.env.PUBLIC_URL}/icons/${iconData[0]}.svg`} alt={iconData[1]} />
                                     </a>
                                 )
@@ -34,7 +34,7 @@ const FeedBack: FC = () => {
                 <span className='feed_back_title'>Подписка</span>
                 <div className='subscribe'>
                     <form className='subscribe_form' >
-                        <input type="email" placeholder='Введите ваш email' className='subscribe_input' />
+                        <input aria-label='Введите адрес электронной почты' type="email" placeholder='Введите ваш email' className='subscribe_input' />
                         <button type='submit' className='subscribe_button'>Подписаться</button>
                     </form>
                 </div>

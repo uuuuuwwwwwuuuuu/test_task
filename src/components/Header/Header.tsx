@@ -28,7 +28,7 @@ const HeaderNew: FC<NewsData> = ({hashTag, data}) => {
     return (
         <div className='header_new'>
             <span>#{hashTag}</span>
-            <span>{data}</span>
+            <h1>{data}</h1>
         </div>
     );
 };
@@ -63,13 +63,13 @@ const Header: FC<Props> = ({setIsAsideVisible}) => {
                         </i>
                     </span>
                     <div className='header_right_elements' >
-                        <div className='header_pages'>
+                        <nav className='header_pages'>
                             {
                                 headerPages.map((titles, index) => {
                                     return <HeaderPage key={index} title={titles} />
                                 })
                             }
-                        </div>
+                        </nav>
                         <button onClick={openAside} className='header_aside_button'>
                             <div></div>
                             <div></div>

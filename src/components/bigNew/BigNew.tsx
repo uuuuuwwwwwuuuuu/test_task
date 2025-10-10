@@ -58,7 +58,7 @@ const BigNew: FC<BigNewProps> = ({isHashTag, imgName, titleOrHashTag, info}) => 
                     isHashTag ? <span className='big_new_hash_tag'>#{titleOrHashTag}</span> : <span className='big_new_title'>{titleOrHashTag}</span>
                 }
                 {
-                    isHashTag ? <span className='big_new_info_hash_tag'>{info}</span> : <span className='big_new_info'>{info}</span>
+                    isHashTag ? <p className='big_new_info_hash_tag'>{info}</p> : <p className='big_new_info'>{info}</p>
                 }
             </div>
             <div className='big_new_darker'></div>
