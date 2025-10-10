@@ -25,7 +25,7 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = (
         )
     }
     return (
-        <div className='small_news_card' >
+        <section className='small_news_card' >
             <div className="small_news_card_img" style={{backgroundImage: `url(${dynamicPath})`}}></div>
             <div className='news_card_text'>
                 <span className='news_card_date'>
@@ -38,7 +38,7 @@ const NewsCard: FC<{size: 'big' | 'small', imgSrc: string, hashTag: string}> = (
                     И если для «горняков», которые неделей ранее разгромно уступили в Турине тамошним «быкам» 0:5, визит «Торино» в Солигорск — формальность, то от «жёлто-синих»...
                 </p>
             </div>
-        </div>
+        </section>
     )
 };
 
