@@ -58,7 +58,7 @@ const CoachCard: FC<CoachProps> = ({textVersion, imgSrc, ref}) => {
                 <span className='coach_name'>Алексей Михайличенко</span>
                 <span className='coach_qualification'>Главный тренер ф.к. Динамо</span>
             </div>
-            <span className='coach_info'>{text}</span>
+            <p className='coach_info'>{text}</p>
             <div className='quotation_mark_wrapper'>
                 <img src={`${process.env.PUBLIC_URL}/icons/quotationMarks.svg`} alt="Иконка кавычек" />
             </div>
